@@ -12,11 +12,14 @@ Hash maps are an important data structure that can be used in a lot of LC-style 
 - First we initialize an empty hash map/table (`ht`). This is where we will store ints to their index in nums. Then we loop through nums.
 #### Steps
 
-
 ```mermaid
 flowchart TD
-    D[initialize an empty hash map/table - ht]-->E[Loop through nums]
-    E[Loop through nums]-->A[Check if complement is in ht]
-    A[Check if complement is in ht]-->|it is| B[Return complement and num]
-    A[Check if complement is in ht]-->|it's not| C[Add num + index to ht]
+    D[Initialize empty hash table ht]
+    D --> E[For each number in nums]
+    E --> A[Compute complement]
+    A --> H{Is complement in ht}
+    H -->|Yes| B[Return pair]
+    H -->|No| C[Store number and index in ht]
+    C --> E
+
 ```

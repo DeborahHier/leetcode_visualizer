@@ -7,3 +7,10 @@ def test_two_sum():
     assert s.twoSum([3, 3], 6) == [0, 1]
     assert s.twoSum([3, 2, 4], 6) == [1, 2]
 
+def test_length_of_longest_substring():
+    s = Solution()
+    assert s.lengthOfLongestSubstring("abcabcbb") == 3
+    assert s.lengthOfLongestSubstring("bbbbb") == 1
+    assert s.lengthOfLongestSubstring("pwwkew") == 3
+    assert s.lengthOfLongestSubstring("abcdefghijklmnopqrstuvwxyz") == 26
+
