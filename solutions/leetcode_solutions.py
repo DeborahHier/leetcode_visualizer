@@ -47,3 +47,23 @@ class VisualizedSolution:
             best = max(best, right - left + 1)
 
         return best, trace
+
+    def maxArea_trace(self, heights: list[int]) -> tuple[int, list[Any]]:
+        # Container With Most Water (LC #11)
+        left, right = 0, len(heights) - 1
+        best = 0
+        trace: list[Any] = []
+
+        while left < right:
+            width = right - left
+            current_height = min(heights[left], heights[right])
+            area = width * current_height
+            best = max(best, area)
+            trace.append(("frame", left, right, area, best))
+
+            if heights[left] <= heights[right]:
+                left += 1
+            else:
+                right -= 1
+
+        return best, trace

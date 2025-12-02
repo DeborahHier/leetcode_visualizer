@@ -1,4 +1,4 @@
-from solutions.leetcode_solutions import Solution
+from solutions.leetcode_solutions import Solution, VisualizedSolution
 
 def test_two_sum():
     s = Solution()
@@ -14,3 +14,10 @@ def test_length_of_longest_substring():
     assert s.lengthOfLongestSubstring("pwwkew") == 3
     assert s.lengthOfLongestSubstring("abcdefghijklmnopqrstuvwxyz") == 26
 
+def test_max_area_trace_visualizer():
+    vs = VisualizedSolution()
+    best, trace = vs.maxArea_trace([1, 8, 6, 2, 5, 4, 8, 3, 7])
+    assert best == 49
+    assert trace[0][0] == "frame"
+    assert trace[0][1] == 0 and trace[0][2] == 8
+    assert any(frame[3] == 49 for frame in trace)
